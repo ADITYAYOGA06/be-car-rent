@@ -1,5 +1,6 @@
 package com.example.rental_mobil.controller;
 
+import com.example.rental_mobil.entity.Driver;
 import com.example.rental_mobil.entity.Mobil;
 import com.example.rental_mobil.repository.MobilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,12 @@ public class MobilController {
     @GetMapping("/getAllMobil")
     public List<Mobil> getAllMobil(){
         List<Mobil> list = mobilRepository.findAll();
+        return list;
+    }
+
+    @GetMapping("/getCarByMerk")
+    public List<Mobil> getAllByMerk(@RequestParam String merk){
+        List<Mobil> list = mobilRepository.findByMerk(merk);
         return list;
     }
 
