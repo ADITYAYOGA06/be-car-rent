@@ -8,6 +8,7 @@ import com.example.rental_mobil.entity.User;
 import com.example.rental_mobil.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -24,6 +25,12 @@ public class UserController {
         List<User> userList = userRepository.findAll();
         return userList;
     }
+
+    @GetMapping("/getUserByUsername")
+    public List<User> getUserByName(@RequestParam String username){
+        return userRepository.findByUsername(new String(username));
+    }
+
 
     @GetMapping("/getAllUser")
     public List<UserDto> getAllUser(){

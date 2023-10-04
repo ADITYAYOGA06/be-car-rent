@@ -24,17 +24,17 @@ public class CustomerController {
         return list;
     }
 
-    @GetMapping("/getByAddress")
+    @GetMapping("/getCustByAddress")
     public List<Customer> findByAddress(@RequestParam String address){
         return customerRepository.findByAddress(new String(address));
     }
 
-    @GetMapping("/getByAddress2")
+    @GetMapping("/getCustByAddress2")
     public List<Customer> findByAddress2(@RequestParam String address) {
         return customerRepository.findByAddress2(new String(address));
     }
 
-    @GetMapping("/getByUsername")
+    @GetMapping("/getCustByUsername")
     public List<Customer> findByUsername(@RequestParam String username){
         return customerRepository.findByUsername(new String(username));
     }
@@ -42,13 +42,13 @@ public class CustomerController {
     @PostMapping("/saveCust")
     public String saveCust(@RequestBody Customer customer){
         customerRepository.save(customer);
-        return "SAVED";
+        return "CUSTOMER DATA SAVED";
     }
 
     @DeleteMapping("/deleteCust")
     public String deleteCust(@RequestParam String id){
         customerRepository.deleteById(String.valueOf(id));
-        return "DELETE SUCCESS";
+        return "CUSTOMER DELETE SUCCESS";
     }
 
 
