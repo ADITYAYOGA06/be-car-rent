@@ -44,4 +44,9 @@ public class MobilController {
         return "MOBIL DELETE SUCCESS";
     }
 
+    @PatchMapping("/updateTarifByPlat")
+    public int updateTarifByPlat(@RequestParam String noPlat, @RequestParam int tarifPerHari){
+        return mobilRepository.updateHargaMobil(noPlat, tarifPerHari);
+    }
+
 }

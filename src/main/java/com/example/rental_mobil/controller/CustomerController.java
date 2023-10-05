@@ -57,5 +57,10 @@ public class CustomerController {
         return "CUSTOMER DELETE SUCCESS";
     }
 
+    @PatchMapping("/updateCustByUsername")
+    public int updateCustAddress(@RequestParam String username,@RequestParam String address){
+        return customerRepository.updateCustAddress(username, address);
+    }
+
 
 }

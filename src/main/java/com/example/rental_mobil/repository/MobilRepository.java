@@ -17,4 +17,9 @@ public interface MobilRepository extends JpaRepository<Mobil, String> {
     @Modifying
     @Query("delete from Mobil x where x.noPlat = :noPlat")
     void deleteByPlat(@Param("noPlat") String noPlat);
+
+    @Transactional
+    @Modifying
+    @Query("update Mobil x set x.tarifPerHari = :tarifPerHari where x.noPlat = :noPlat")
+    int updateHargaMobil(@Param("noPlat") String noPlat, @Param("tarifPerHari") int tarifPerHari);
 }

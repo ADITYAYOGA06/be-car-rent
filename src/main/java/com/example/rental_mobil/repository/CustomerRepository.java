@@ -23,4 +23,9 @@ public interface CustomerRepository extends JpaRepository<Customer, String> {
     @Query("delete from Customer x where x.username = :username")
     void deleteByName(@Param("username") String username);
 
+    @Transactional
+    @Modifying
+    @Query("update Customer x set x.address = :address where x.username = :username")
+    int updateCustAddress(@Param("username") String username, @Param("address") String address);
+
 }
