@@ -34,13 +34,13 @@ public class MobilController {
 
     @DeleteMapping("/deleteMobilById")
     public String deleteMobil(@RequestParam String idMobil){
-        mobilRepository.deleteById((idMobil));
+        mobilRepository.deleteById(String.valueOf(idMobil));
         return "MOBIL DELETE SUCCESS";
     }
 
     @DeleteMapping("/deleteMobilByPlat")
     public String deleteMobilByPlat(@RequestParam String noPlat){
-        mobilRepository.deleteByPlat((noPlat));
+        mobilRepository.deleteByPlat(String.valueOf(noPlat));
         return "MOBIL DELETE SUCCESS";
     }
 

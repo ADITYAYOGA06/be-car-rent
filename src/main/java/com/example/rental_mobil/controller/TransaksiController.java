@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class TransaksiController {
@@ -32,18 +33,14 @@ public class TransaksiController {
         return "TRANSAKSI DELETE SUCCESS";
     }
 
-//    @GetMapping("/GetTxnByCarId")
-//    public List<Transaksi> findTxnByIdTxn(@RequestParam String idTransaksi){
-//        return transaksiRepository.getById(new String(idTransaksi));
-//    }
+    @GetMapping("/GetTxnById")
+    public Optional<Transaksi> findTxnByCarId(@RequestParam String idTransaksi){
+         return transaksiRepository.findById(idTransaksi);
+    }
 
 //    @GetMapping("/GetTxnByIdTxn2")
 //    public List<Transaksi> findTxnById(String idTransaksi){
 //        return transaksiRepository.getById(idTransaksi);
 //    }
 
-//    @GetMapping("/getDrvByUsername")
-//    public List<Driver> findByUsername(@RequestParam String username){
-//        return driverRepository.findByUsername(new String(username));
-//    }
 }

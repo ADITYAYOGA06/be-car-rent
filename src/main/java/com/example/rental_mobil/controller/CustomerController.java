@@ -53,7 +53,7 @@ public class CustomerController {
 
     @DeleteMapping("/deleteCustByUsername")
     public String deleteCustByUsername(@RequestParam String username){
-        customerRepository.deleteByName((username));
+        customerRepository.deleteByName(String.valueOf(username));
         return "CUSTOMER DELETE SUCCESS";
     }
 
